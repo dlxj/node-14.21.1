@@ -1,0 +1,1 @@
+ --with-ltcg --shared --dest-cpu=x64

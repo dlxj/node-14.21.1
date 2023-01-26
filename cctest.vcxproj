@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{222947FE-27F7-D331-6444-1116661187D9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>cctest</RootNamespace>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Locals">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
+  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props"/>
+  <ImportGroup Label="ExtensionSettings"/>
+  <ImportGroup Label="PropertySheets">
+    <Import Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"/>
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros"/>
+  <PropertyGroup>
+    <ExecutablePath>$(ExecutablePath);$(MSBuildProjectDirectory)\.\bin\;$(MSBuildProjectDirectory)\.\bin\</ExecutablePath>
+    <OutDir>out\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>src;tools\msvs\genfiles;deps\v8\include;deps\cares\include;deps\uv\include;deps\uvwasi\include;test\cctest;deps\googletest\include;deps\histogram\src;deps\icu-small\source\i18n;deps\icu-small\source\common;deps\zlib;deps\llhttp\include;deps\nghttp2\lib\includes;deps\brotli\c\include;deps\openssl\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <DisableSpecificWarnings>4351;4355;4800;4251;4275;4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
+      <ForcedIncludeFiles>node_pch.h</ForcedIncludeFiles>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>node_pch.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;NODE_OPENSSL_CONF_NAME=nodejs_conf;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;OPENSSL_THREADS;NODE_ARCH=&quot;x64&quot;;NODE_WANT_INTERNALS=1;HAVE_OPENSSL=1;HAVE_INSPECTOR=1;NODE_SHARED_MODE;FD_SETSIZE=1024;NODE_PLATFORM=&quot;win32&quot;;NOMINMAX;_UNICODE=1;NODE_USE_V8_PLATFORM=1;NODE_HAVE_I18N_SUPPORT=1;GTEST_HAS_POSIX_RE=0;GTEST_LANG_CXX11=1;UNIT_TEST;UCONFIG_NO_SERVICE=1;U_ENABLE_DYLOAD=0;U_STATIC_IMPLEMENTATION=1;U_HAVE_STD_STRING=1;UCONFIG_NO_BREAK_ITERATION=0;NGHTTP2_STATICLIB;DEBUG;_DEBUG;V8_ENABLE_CHECKS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Dbghelp.lib;winmm.lib;Ws2_32.lib</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>src;tools\msvs\genfiles;deps\v8\include;deps\cares\include;deps\uv\include;deps\uvwasi\include;test\cctest;deps\googletest\include;deps\histogram\src;deps\icu-small\source\i18n;deps\icu-small\source\common;deps\zlib;deps\llhttp\include;deps\nghttp2\lib\includes;deps\brotli\c\include;deps\openssl\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;NODE_OPENSSL_CONF_NAME=nodejs_conf;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;OPENSSL_THREADS;NODE_ARCH=&quot;x64&quot;;NODE_WANT_INTERNALS=1;HAVE_OPENSSL=1;HAVE_INSPECTOR=1;NODE_SHARED_MODE;FD_SETSIZE=1024;NODE_PLATFORM=&quot;win32&quot;;NOMINMAX;_UNICODE=1;NODE_USE_V8_PLATFORM=1;NODE_HAVE_I18N_SUPPORT=1;GTEST_HAS_POSIX_RE=0;GTEST_LANG_CXX11=1;UNIT_TEST;UCONFIG_NO_SERVICE=1;U_ENABLE_DYLOAD=0;U_STATIC_IMPLEMENTATION=1;U_HAVE_STD_STRING=1;UCONFIG_NO_BREAK_ITERATION=0;NGHTTP2_STATICLIB;DEBUG;_DEBUG;V8_ENABLE_CHECKS;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>src;tools\msvs\genfiles;deps\v8\include;deps\cares\include;deps\uv\include;deps\uvwasi\include;test\cctest;deps\googletest\include;deps\histogram\src;deps\icu-small\source\i18n;deps\icu-small\source\common;deps\zlib;deps\llhttp\include;deps\nghttp2\lib\includes;deps\brotli\c\include;deps\openssl\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <DisableSpecificWarnings>4351;4355;4800;4251;4275;4244;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <ForcedIncludeFiles>node_pch.h</ForcedIncludeFiles>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>node_pch.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;NODE_OPENSSL_CONF_NAME=nodejs_conf;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;OPENSSL_THREADS;NODE_ARCH=&quot;x64&quot;;NODE_WANT_INTERNALS=1;HAVE_OPENSSL=1;HAVE_INSPECTOR=1;NODE_SHARED_MODE;FD_SETSIZE=1024;NODE_PLATFORM=&quot;win32&quot;;NOMINMAX;_UNICODE=1;NODE_USE_V8_PLATFORM=1;NODE_HAVE_I18N_SUPPORT=1;GTEST_HAS_POSIX_RE=0;GTEST_LANG_CXX11=1;UNIT_TEST;UCONFIG_NO_SERVICE=1;U_ENABLE_DYLOAD=0;U_STATIC_IMPLEMENTATION=1;U_HAVE_STD_STRING=1;UCONFIG_NO_BREAK_ITERATION=0;NGHTTP2_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Dbghelp.lib;winmm.lib;Ws2_32.lib</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>src;tools\msvs\genfiles;deps\v8\include;deps\cares\include;deps\uv\include;deps\uvwasi\include;test\cctest;deps\googletest\include;deps\histogram\src;deps\icu-small\source\i18n;deps\icu-small\source\common;deps\zlib;deps\llhttp\include;deps\nghttp2\lib\includes;deps\brotli\c\include;deps\openssl\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;NODE_OPENSSL_CONF_NAME=nodejs_conf;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;BUILDING_V8_SHARED=1;BUILDING_UV_SHARED=1;OPENSSL_THREADS;NODE_ARCH=&quot;x64&quot;;NODE_WANT_INTERNALS=1;HAVE_OPENSSL=1;HAVE_INSPECTOR=1;NODE_SHARED_MODE;FD_SETSIZE=1024;NODE_PLATFORM=&quot;win32&quot;;NOMINMAX;_UNICODE=1;NODE_USE_V8_PLATFORM=1;NODE_HAVE_I18N_SUPPORT=1;GTEST_HAS_POSIX_RE=0;GTEST_LANG_CXX11=1;UNIT_TEST;UCONFIG_NO_SERVICE=1;U_ENABLE_DYLOAD=0;U_STATIC_IMPLEMENTATION=1;U_HAVE_STD_STRING=1;UCONFIG_NO_BREAK_ITERATION=0;NGHTTP2_STATICLIB;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="node.gyp"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test\cctest\node_test_fixture.h"/>
+    <ClInclude Include="tools\msvs\pch\node_pch.h"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\node_snapshot_stub.cc">
+      <ObjectFileName>$(IntDir)\src\node_snapshot_stub.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\node_code_cache_stub.cc">
+      <ObjectFileName>$(IntDir)\src\node_code_cache_stub.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\node_test_fixture.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\node_test_fixture.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_aliased_buffer.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_aliased_buffer.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_base64.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_base64.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_base_object_ptr.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_base_object_ptr.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_node_postmortem_metadata.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_node_postmortem_metadata.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_environment.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_environment.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_js_native_api_v8.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_js_native_api_v8.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_linked_binding.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_linked_binding.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_node_api.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_node_api.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_per_process.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_per_process.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_platform.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_platform.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_json_utils.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_json_utils.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_sockaddr.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_sockaddr.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_traced_value.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_traced_value.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_util.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_util.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_url.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_url.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_inspector_socket.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_inspector_socket.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="test\cctest\test_inspector_socket_server.cc">
+      <ObjectFileName>$(IntDir)\test\cctest\test_inspector_socket_server.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="tools\msvs\pch\node_pch.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <ObjectFileName>$(IntDir)\tools\msvs\pch\node_pch.obj</ObjectFileName>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libnode.vcxproj">
+      <Project>{5440ED0A-3FFA-EDD6-58D3-2EABD269AFC2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\googletest\gtest.vcxproj">
+      <Project>{766A8B69-7A47-6920-A4C2-85D0E4D2EA5B}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\googletest\gtest_main.vcxproj">
+      <Project>{376F8D4A-013E-2AA4-3D79-AF903591D5CB}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\histogram\histogram.vcxproj">
+      <Project>{0C478E30-DD77-A796-921E-5AC9615C6893}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\uvwasi\uvwasi.vcxproj">
+      <Project>{033007AF-AA39-CF28-B67B-3316B30168C6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="node_dtrace_header.vcxproj">
+      <Project>{6FDAA94C-5B5B-2958-7207-BEB5379D5BE0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="node_dtrace_ustack.vcxproj">
+      <Project>{368520EE-2A85-1008-BD4D-749D05BD9A30}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="node_dtrace_provider.vcxproj">
+      <Project>{ED888D94-0B7F-2FAC-2BA7-DD02A8FF2DD9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="tools\v8_gypfiles\v8_snapshot.vcxproj">
+      <Project>{70F92D9D-9C56-75DC-D151-853A9D48651D}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="tools\v8_gypfiles\v8_libplatform.vcxproj">
+      <Project>{92B18086-2B7E-D207-695C-A7E5C98622A1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="tools\icu\icui18n.vcxproj">
+      <Project>{DA8ED0C8-CD96-7F39-8BFC-C647C8C6E3FE}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="tools\icu\icuuc.vcxproj">
+      <Project>{6FEB5F0A-E6B2-54BE-BBB8-95D0237DA4D7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\zlib\zlib.vcxproj">
+      <Project>{7FF6F247-3828-69AF-7EDB-FB0A9FF393E1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\llhttp\llhttp.vcxproj">
+      <Project>{DEE4A9CF-AAC0-F596-2494-B2B18D072F00}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\cares\cares.vcxproj">
+      <Project>{74CF319D-6651-E4ED-35FD-B82D47DC2516}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\uv\libuv.vcxproj">
+      <Project>{603C6853-166F-A229-0CE7-B001CAF96C76}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\nghttp2\nghttp2.vcxproj">
+      <Project>{43081741-32EC-9436-5F9B-8A7353222B0B}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\brotli\brotli.vcxproj">
+      <Project>{74A7ACA4-9758-F129-19C0-D2A53D6A8C3A}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\openssl\openssl.vcxproj">
+      <Project>{5C6460DB-F7B1-5315-A0DE-79A9DFC525A1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="deps\openssl\openssl-cli.vcxproj">
+      <Project>{21D888B2-15AC-898B-EA33-9C73445681C1}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
+  <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets"/>
+  <ImportGroup Label="ExtensionTargets"/>
+</Project>
