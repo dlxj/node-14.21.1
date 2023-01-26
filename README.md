@@ -9,7 +9,7 @@
 编译方法参考这里：
 	https://github.com/agracio/edge-js#building-edgejs-nuget-package
 	
-	
+编译工具：vs2019	
 
 node 工程 -> 调试 -> 命令行参数：
 $(TargetDir)pmserver\\server.js
