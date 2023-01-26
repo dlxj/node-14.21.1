@@ -11,6 +11,14 @@
 	
 编译工具：vs2019	
 
+	node 设为启动项目，运行成功后 server.js 监听 8880 端口
+		postman 调用接口：
+			http://127.0.0.1:8880/search
+				keywd:ここ
+				type:anime
+				lang_type:jp
+			
+
 node 工程 -> 调试 -> 命令行参数：
 $(TargetDir)pmserver\\server.js
 
