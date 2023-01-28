@@ -14,7 +14,36 @@
 	编译 dll 时注意 node 设为 x64, 使用多字节字符集
 	调用 dll 时注意 工程  设为 x64, 使用多字节字符集
 		配置属性 -> 高级 -> 字符集 -> 使用多字节字符集
-	
+
+调用 dll 代码：
+#include <iostream>
+
+#include "windows.h"
+
+int main()
+{
+    HINSTANCE   ghDLL = NULL;
+    ghDLL = LoadLibrary("D:\\GitHub\\node-14.21.1\\out\\Debug\\node.dll");
+
+    typedef int (_cdecl* FunctionPtr) (int argc, wchar_t* wargv[]);
+
+    FunctionPtr wmain;
+
+    wmain = (FunctionPtr)GetProcAddress(ghDLL, "wmain");
+
+    int argc = 2;
+
+    wchar_t* wargv[] = {
+      (wchar_t*)L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe",
+      (wchar_t*)L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js",
+      nullptr
+    };
+
+    wmain(argc, wargv);
+
+    std::cout << "Hello World!\n";
+}
+
 
 	node 设为启动项目，运行成功后 server.js 监听 8880 端口
 		postman 调用接口：
