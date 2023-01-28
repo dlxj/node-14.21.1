@@ -9,7 +9,12 @@
 编译方法参考这里：
 	https://github.com/agracio/edge-js#building-edgejs-nuget-package
 	
-编译工具：vs2019	
+编译工具：vs2019
+	
+	编译 dll 时注意 node 设为 x64, 使用多字节字符集
+	调用 dll 时注意 工程  设为 x64, 使用多字节字符集
+		配置属性 -> 高级 -> 字符集 -> 使用多字节字符集
+	
 
 	node 设为启动项目，运行成功后 server.js 监听 8880 端口
 		postman 调用接口：

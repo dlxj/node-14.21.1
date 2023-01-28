@@ -33,7 +33,7 @@
 
 
 
-int wmain(int argc, wchar_t* wargv[]) {
+extern "C" __declspec(dllexport) int wmain(int argc, wchar_t* wargv[]) {
   // Windows Server 2012 (not R2) is supported until 10/10/2023, so we allow it
   // to run in the experimental support tier.
   char buf[SKIP_CHECK_SIZE + 1];
