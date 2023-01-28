@@ -15,6 +15,11 @@
 	调用 dll 时注意 工程  设为 x64, 使用多字节字符集
 		配置属性 -> 高级 -> 字符集 -> 使用多字节字符集
 
+调用 node.dll 的方法看这里：node-14.21.1 目录下的：
+	ConsoleApplication.cpp  必须 x64, 使用多字节字符集
+	Program.cs 必须 x64
+
+
 调用 dll 代码：
 #include <iostream>
 
