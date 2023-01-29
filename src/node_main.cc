@@ -34,6 +34,18 @@
 
 
 extern "C" __declspec(dllexport) int wmain(int argc, wchar_t* wargv[]) {
+
+   //argc = 2;
+
+   //wchar_t* wargv2[] = {
+   //   L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe",
+   //   //(wchar_t*)lpCmdLine,
+   //   // L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js",
+   //   L"D:\\GitHub\\echodict\\pmserver\\server.js"
+   //};
+
+   //wargv = wargv2;
+
   // Windows Server 2012 (not R2) is supported until 10/10/2023, so we allow it
   // to run in the experimental support tier.
   char buf[SKIP_CHECK_SIZE + 1];
@@ -86,9 +98,9 @@ extern "C" __declspec(dllexport) int wmain(int argc, wchar_t* wargv[]) {
     }
   }
   argv[argc] = nullptr;
-  //argv[0] = "C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe";
-  //argv[1] = "C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js";
+
   // Now that conversion is done, we can finally start.
+
   return node::Start(argc, argv);
 }
 #else
@@ -157,9 +169,9 @@ int WinMain(HINSTANCE hInstance,
 
   wchar_t* wargv[] = {
     L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe",
-    (wchar_t*)lpCmdLine,
+    //(wchar_t*)lpCmdLine,
     //L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js",
-    nullptr
+    L"D:\\GitHub\\echodict\\pmserver\\server.js"
   };
 
   //char** argv = new char*[argc + 1];

@@ -20,7 +20,7 @@
 	Program.cs 必须 x64
 
 
-调用 dll 代码：
+C++调用 dll 代码：
 #include <iostream>
 
 #include "windows.h"
@@ -40,14 +40,52 @@ int main()
 
     wchar_t* wargv[] = {
       (wchar_t*)L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe",
-      (wchar_t*)L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js",
-      nullptr
+      //(wchar_t*)L"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js",
+      (wchar_t*)L"D:\\GitHub\\echodict\\pmserver\\server.js"
     };
 
     wmain(argc, wargv);
 
     std::cout << "Hello World!\n";
 }
+
+C# 调用dll代码：
+
+	using System.Runtime.InteropServices;
+    
+    	[DllImport("user32.dll", EntryPoint = "MessageBoxA")]
+        public static extern int MsgBox(int hWnd, string msg, string caption, int type);
+
+        // 定义给 C# 的传参，全部参数都定义在这个结构数组里
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct wmain_params
+        {
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+            public string[] wargv;  // 大小固定为 2 个元素
+        }
+        [DllImport("D:\\GitHub\\node-14.21.1\\out\\Debug\\node.dll", EntryPoint = "wmain", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+        public static extern int wmain(int argc,  ref wmain_params wargv);
+
+
+        static void Main(string[] args)
+        {
+
+            //ThreadPool.QueueUserWorkItem(s =>
+            //{
+                wmain_params pms = new wmain_params();
+                pms.wargv = new string[] {
+                    "C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe",
+                    //"C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js",
+                    "D:\\GitHub\\echodict\\pmserver\\server.js"
+                };
+
+                wmain(2, ref pms);
+
+            //});
+
+            MsgBox(0, "C#调用DLL文件", "这是标题", 0x30);
+        }
+
 
 
 	node 设为启动项目，运行成功后 server.js 监听 8880 端口
