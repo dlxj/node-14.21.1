@@ -86,8 +86,8 @@ extern "C" __declspec(dllexport) int wmain(int argc, wchar_t* wargv[]) {
     }
   }
   argv[argc] = nullptr;
-  argv[0] = "C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe";
-  argv[1] = "C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js";
+  //argv[0] = "C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\node2.exe";
+  //argv[1] = "C:\\projects\\edge-js\\tools\\build\\node-14.21.1\\out\\Debug\\pmserver\\server.js";
   // Now that conversion is done, we can finally start.
   return node::Start(argc, argv);
 }
